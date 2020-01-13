@@ -1,0 +1,28 @@
+{
+  "tabs": {
+    "search": "Find ticket",
+    "account": "Account",
+    "settings": "Settings"
+  },
+  "common": {
+    "close": "Close"
+  },
+  "search": {
+    "title": "Search",
+    "form": {
+      "from": "From:",
+      "to": "To:",
+      "date-from": "Departure date:"
+    }
+  },
+  "city-helper": {
+    "title": "Find your location",
+    "search-placeholder": "Search"
+  },
+  "account": {
+    "title": "Account"
+  },
+  "settings": {
+    "title": "Settings"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "name": "trenitalia-web",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

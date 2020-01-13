@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      {{ 'search.title' | translate }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ti-search-page">
+  <ion-list-header>
+    <ion-label>{{ 'search.title' | translate }}</ion-label>
+  </ion-list-header>
+  <ion-segment class="ti-search-page__segment">
+    <ion-segment-button layout="icon-start">
+      <ion-icon name="arrow-round-forward"></ion-icon>
+      One way
+    </ion-segment-button>
+    <ion-segment-button layout="icon-start">
+      <ion-icon name="arrow-round-forward"></ion-icon>
+      Round trip
+    </ion-segment-button>
+  </ion-segment>
+  <ion-list>
+    <ion-item (click)="openModal('from')">
+      <ion-icon slot="start"
+                name="pin"></ion-icon>
+      <ion-note>{{'search.form.from' | translate }}</ion-note>
+      <ion-label class="ion-padding-start">{{ searchForm.get('from').value }}</ion-label>
+    </ion-item>
+    <ion-item (click)="openModal('to')">
+      <ion-icon slot="start"
+                name="pin"></ion-icon>
+      <ion-note>{{'search.form.to' | translate}}</ion-note>
+      <ion-label class="ion-padding-start">{{ searchForm.get('to').value }}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon slot="start"
+                name="calendar"></ion-icon>
+      <ion-note>{{ 'search.form.date-from' | translate }}</ion-note>
+      <ion-datetime displayFormat="D MMM YYYY HH:mm"
+                    [min]="minValue"
+                    [max]="maxValue"
+                    [minuteValues]="[0]"
+                    [formControl]="searchForm.get('dateFrom')"></ion-datetime>
+    </ion-item>
+  </ion-list>
+  <ion-button expand="block" class="ion-margin-horizontal" [routerLink]="'res'">
+    Search
+  </ion-button>
+</ion-content>

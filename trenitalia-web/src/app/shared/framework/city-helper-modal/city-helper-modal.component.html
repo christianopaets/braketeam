@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ 'city-helper.title' | translate }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">
+        {{ 'common.close' | translate }}
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [scrollY]="(stations$ | async).length > 0">
+  <ion-list>
+    <ion-item lines="full"
+              class="ion-no-padding">
+      <ion-searchbar #searchBar
+                     [formControl]="searchText"
+                     [placeholder]="'city-helper.search-placeholder' | translate"></ion-searchbar>
+    </ion-item>
+    <ng-container *ngIf="!(loading$ | async)">
+      <ion-item *ngFor="let station of stations$ | async"
+                (click)="select(station)">
+        {{station.name}}
+      </ion-item>
+    </ng-container>
+    <ng-container *ngIf="loading$ | async">
+      <ion-item *ngFor="let i of [0,1,2,3,4,5,6,7,8,9]">
+        <ion-skeleton-text width="40%" [animated]="true"></ion-skeleton-text>
+      </ion-item>
+    </ng-container>
+  </ion-list>
+</ion-content>
